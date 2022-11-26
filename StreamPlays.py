@@ -70,17 +70,13 @@ def handle_message(message):
         print("Got this message from " + username + ": " + msg)
 
         # Now that you have a chat message, this is where you add your game logic.
-        # Use the "HoldKey(KEYCODE)" function to permanently press and hold down a key.
-        # Use the "ReleaseKey(KEYCODE)" function to release a specific keyboard key.
-        # Use the "HoldAndReleaseKey(KEYCODE, SECONDS)" function press down a key for X seconds, then release it.
-        # Use the pydirectinput library to press or move the mouse
-
-        # I've added some example video-game logic code below:
 
         ###################################
         ########### Games #################
         ###################################
         GamesCodes.Valorant(msg, username)
+
+
 
     except Exception as e:
         print("Encountered exception: " + str(e))
