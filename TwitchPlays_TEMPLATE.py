@@ -9,17 +9,17 @@ from TwitchPlays_KeyCodes import *
 ##################### GAME VARIABLES #####################
 
 # Replace this with your Twitch username. Must be all lowercase.
-TWITCH_CHANNEL = 'Osraj'
+TWITCH_CHANNEL = 'osraj'
 
-# If streaming on Youtube, set this to False
+# If streaming on YouTube, set this to False
 STREAMING_ON_TWITCH = True
 
-# If you're streaming on Youtube, replace this with your Youtube's Channel ID
-# Find this by clicking your Youtube profile pic -> Settings -> Advanced Settings
+# If you're streaming on YouTube, replace this with your YouTube's Channel ID
+# Find this by clicking your YouTube profile pic -> Settings -> Advanced Settings
 YOUTUBE_CHANNEL_ID = "YOUTUBE_CHANNEL_ID_HERE" 
 
-# If you're using an Unlisted stream to test on Youtube, replace "None" below with your stream's URL in quotes.
-# Otherwise you can leave this as "None"
+# If you're using an Unlisted stream to test on YouTube, replace "None" below with your stream's URL in quotes.
+# Otherwise, you can leave this as "None"
 YOUTUBE_STREAM_URL = None
 
 ##################### MESSAGE QUEUE VARIABLES #####################
@@ -59,6 +59,7 @@ else:
     t = TwitchPlays_Connection.YouTube()
     t.youtube_connect(YOUTUBE_CHANNEL_ID, YOUTUBE_STREAM_URL)
 
+
 def handle_message(message):
     try:
         msg = message['message'].lower()
@@ -72,7 +73,7 @@ def handle_message(message):
         # Use the "HoldAndReleaseKey(KEYCODE, SECONDS)" function press down a key for X seconds, then release it.
         # Use the pydirectinput library to press or move the mouse
 
-        # I've added some example videogame logic code below:
+        # I've added some example video-game logic code below:
 
         ###################################
         # Example GTA V Code 
@@ -88,13 +89,13 @@ def handle_message(message):
 
         # If message is "drive", then permanently hold down the W key
         if msg == "drive": 
-            ReleaseKey(S) #release brake key first
-            HoldKey(W) #start permanently driving
+            ReleaseKey(S)  # release brake key first
+            HoldKey(W)  # start permanently driving
 
         # If message is "reverse", then permanently hold down the S key
         if msg == "reverse": 
-            ReleaseKey(W) #release drive key first
-            HoldKey(S) #start permanently reversing
+            ReleaseKey(W)  # release drive key first
+            HoldKey(S)  # start permanently reversing
 
         # Release both the "drive" and "reverse" keys
         if msg == "stop": 
@@ -130,11 +131,11 @@ while True:
 
     active_tasks = [t for t in active_tasks if not t.done()]
 
-    #Check for new messages
-    new_messages = t.twitch_receive_messages();
+    # Check for new messages
+    new_messages = t.twitch_receive_messages()
     if new_messages:
-        message_queue += new_messages; # New messages are added to the back of the queue
-        message_queue = message_queue[-MAX_QUEUE_LENGTH:] # Shorten the queue to only the most recent X messages
+        message_queue += new_messages # New messages are added to the back of the queue
+        message_queue = message_queue[-MAX_QUEUE_LENGTH:]  # Shorten the queue to only the most recent X messages
 
     messages_to_handle = []
     if not message_queue:
@@ -148,7 +149,7 @@ while True:
             # Pop the messages we want off the front of the queue
             messages_to_handle = message_queue[0:n]
             del message_queue[0:n]
-            last_time = time.time();
+            last_time = time.time()
 
     # If user presses Shift+Backspace, automatically end the program
     if keyboard.is_pressed('shift+backspace'):

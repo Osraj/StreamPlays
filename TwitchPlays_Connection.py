@@ -1,10 +1,10 @@
 # DougDoug Note: 
-# This is the code that connects to Twitch / Youtube and checks for new messages.
+# This is the code that connects to Twitch / YouTube and checks for new messages.
 # You should not need to modify anything in this file, just use as is.
 
 # This code is based on Wituz's "Twitch Plays" tutorial, updated for Python 3.X
 # http://www.wituz.com/make-your-own-twitch-plays-stream.html
-# Updated for Youtube by DDarknut, with help by Ottomated
+# Updated for YouTube by DDarknut, with help by Ottomated
 
 import requests
 import sys

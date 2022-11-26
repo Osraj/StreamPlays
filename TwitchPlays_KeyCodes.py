@@ -140,6 +140,7 @@ def ReleaseKey(hexKeyCode):
     x = pynput._util.win32.INPUT(ctypes.c_ulong(1), ii_)
     SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
 
+
 # Holds down a key for the specified number of seconds
 def HoldAndReleaseKey(hexKeyCode, seconds):
     HoldKey(hexKeyCode)
