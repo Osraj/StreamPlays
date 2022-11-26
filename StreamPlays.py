@@ -53,10 +53,10 @@ while countdown > 0:
     time.sleep(1)
 
 if STREAMING_ON_TWITCH:
-    t = TwitchPlays_Connection.Twitch()
+    t = Connector.Twitch()
     t.twitch_connect(TWITCH_CHANNEL)
 else:
-    t = TwitchPlays_Connection.YouTube()
+    t = Connector.YouTube()
     t.youtube_connect(YOUTUBE_CHANNEL_ID, YOUTUBE_STREAM_URL)
 
 
@@ -103,7 +103,7 @@ def handle_message(message):
             ReleaseKey(S)
 
         # Press the spacebar for 0.7 seconds
-        if msg == "brake": 
+        if msg == "jump":
             HoldAndReleaseKey(SPACE, 0.7)
 
         # Press the left mouse button down for 1 second, then release it
@@ -114,11 +114,17 @@ def handle_message(message):
 
         # Move the mouse up by 30 pixels
         if msg == "aim up":
-            pydirectinput.moveRel(0, -30, relative=True)
+            pydirectinput.moveRel(0, -100, relative=True)
+
+        if msg == "aim down":
+            pydirectinput.moveRel(0, 100, relative=True)
 
         # Move the mouse right by 200 pixels
         if msg == "aim right":
-            pydirectinput.moveRel(200, 0, relative=True)
+            pydirectinput.moveRel(500, 0, relative=True)
+
+        if msg == "aim left":
+            pydirectinput.moveRel(-500, 0, relative=True)
 
         ####################################
         ####################################
