@@ -3,8 +3,8 @@ import random
 import keyboard
 import pydirectinput
 import pyautogui
-import TwitchPlays_Connection
-from TwitchPlays_KeyCodes import *
+import Connector
+from KeyCodes import *
 
 ##################### GAME VARIABLES #####################
 
